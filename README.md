@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/FranBlz/TDD2018.svg?branch=master)](https://travis-ci.org/FranBlz/TDD2018)
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/FranBlz/TDD2018/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/FranBlz/TDD2018/?branch=master)
+
 # Alumnos
 
 -Torboli Joel
