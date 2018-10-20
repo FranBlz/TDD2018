@@ -12,8 +12,9 @@ class Mazo {
     return empty($this->array);
   }
 
-  public function agregar($element) {
-    $this->array[] = $element;
+  public function agregar($numero, $palo) {
+    $carta = new Carta($numero, $palo);
+    $this->array[] = $carta;
     $this->cant += 1;
   }
 
@@ -41,7 +42,7 @@ class Mazo {
       for($i = 0; $i <= $myRand; $i += 1) {
         $tmp = $this->array[$i];
         unset($this->array[$i]);
-        $this->agregar($tmp);
+        $this->agregar($tmp->numero(),$tmp->palo());
       }
       return True;
     }
@@ -51,7 +52,8 @@ class Mazo {
     return $this->cant;
   }
 
-  public function cartas() {
+  public function cartas() { # Esta funcion es empleada para el testeo de la funcion mezclar
     return $this->array;
   }
+
 }
