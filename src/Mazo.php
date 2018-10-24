@@ -8,14 +8,26 @@ class Mazo {
   protected $cant = 0;
   protected $top;
 
+  protected $pokerP = array( "corazones", "picas", "treboles", "diamantes" );
+  protected $pokerN  = array( "As", "2", "3", "4", "5", "6", "7", "8", "9", "J", "K", "Q" );
+  protected $espP = array( "oro", "espada", "basto", "copa" );
+  protected $espN  = array( "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" );
+  
   public function esVacio() {
     return empty( $this->array );
   }
 
   public function agregar( $numero, $palo ) {
-    $carta = new Carta( $numero, $palo );
-    $this->array[ ] = $carta;
-    $this->cant += 1;
+  	if( (in_array($numero, $espN) && in_array($palo, $espP)) || (in_array($numero, $pokerN) && in_array($palo, $pokerP)) )
+  	{
+  		$carta = new Carta( $numero, $palo );
+   	 	$this->array[ ] = $carta;
+    		$this->cant += 1;
+  	}
+	else
+	{
+		return False;
+	}
   }
 
   public function mezclar() {
