@@ -18,7 +18,7 @@ class Mazo {
   }
 
   public function agregar( $numero, $palo ) {
-  	if( (in_array($numero, $espN) && in_array($palo, $espP)) || (in_array($numero, $pokerN) && in_array($palo, $pokerP)) )
+  	if( (in_array($numero, $this->espN) && in_array($palo, $this->espP)) || (in_array($numero, $this->pokerN) && in_array($palo, $this->pokerP)) )
   	{
   		$carta = new Carta( $numero, $palo );
    	 	$this->array[ ] = $carta;
