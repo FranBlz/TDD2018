@@ -30,7 +30,7 @@ class MazoTest extends TestCase {
         $mazo->agregar("2", "espada");
         $mazo->agregar("3", "espada");
         $mazo->agregar("4", "espada");
-        $this->assertEquals($mazo->sacar()->palo(), "carta4");
+        $this->assertEquals($mazo->sacar()->palo(), "espada");
     }
 
     public function testMezclar() {
@@ -69,8 +69,8 @@ class MazoTest extends TestCase {
         $mazo->agregar("3", "oro");
         $mazo->agregar("5", "copa");
         $mazo->agregar("6", "espada");
-	$this_>assertFalse($mazo->agregar("6", "jamon"));
-	$this_>assertFalse($mazo->agregar("39", "oro"));
+	$this->assertFalse($mazo->agregar("6", "jamon"));
+	$this->assertFalse($mazo->agregar("39", "oro"));
         $this->assertEquals($mazo->sacar()->palo(), "espada");
     }
 }
