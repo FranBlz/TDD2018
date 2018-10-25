@@ -1,6 +1,7 @@
 <?php
 
 namespace TDD;
+use Exception;
 
 class Mazo {
 
@@ -8,26 +9,39 @@ class Mazo {
   protected $cant = 0;
   protected $top;
 
+  protected $tipo;
+  protected $arrayTipoP = [ ];
+  protected $arrayTipoN = [ ];
   protected $pokerP = array( "corazones", "picas", "treboles", "diamantes" );
   protected $pokerN  = array( "As", "2", "3", "4", "5", "6", "7", "8", "9", "J", "K", "Q" );
   protected $espP = array( "oro", "espada", "basto", "copa" );
   protected $espN  = array( "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" );
   
+  public function __construct($tipo) {
+    $this->tipo = $tipo;
+    if($this->tipo == "español"){
+      $this->arrayTipoP = $this->espP;
+      $this->arrayTipoN = $this->espN;
+    }
+    else if($this->tipo == "poker") {
+      $this->arrayTipoP = $this->pokerP;
+      $this->arrayTipoN = $this->pokerN;
+    }
+  }
+
   public function esVacio() {
     return empty( $this->array );
   }
 
   public function agregar( $numero, $palo ) {
-  	if( (in_array($numero, $this->espN) && in_array($palo, $this->espP)) || (in_array($numero, $this->pokerN) && in_array($palo, $this->pokerP)) )
-  	{
+  	if( (in_array($numero, $this->arrayTipoN) && in_array($palo, $this->arrayTipoP))) {
   		$carta = new Carta( $numero, $palo );
    	 	$this->array[ ] = $carta;
     		$this->cant += 1;
   	}
-	else
-	{
-		return False;
-	}
+    else {
+      return False;
+    }
   }
 
   public function mezclar() {
@@ -66,6 +80,10 @@ class Mazo {
   public function cartas() {
 # Esta funcion es empleada para el testeo de la funcion mezclar
     return $this->array;
+  }
+
+  public function tipo() {
+    return $this->tipo;
   }
 
 }
