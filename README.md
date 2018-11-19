@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/FranBlz/TDD2018/badge.svg?branch=master)](https://coveralls.io/github/FranBlz/TDD2018?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/FranBlz/TDD2018/badge.svg)](https://coveralls.io/github/FranBlz/TDD2018)
 
 [![Build Status](https://travis-ci.org/FranBlz/TDD2018.svg?branch=master)](https://travis-ci.org/FranBlz/TDD2018)
 
