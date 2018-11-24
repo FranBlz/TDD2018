@@ -75,8 +75,8 @@ class MazoTest extends TestCase {
     }
 
     public function testTipoMazo() {
-        //$mazo = new Mazo("queso");
-        //$this->assertFalse($mazo); falta agregar la logica para este test
+        $mazo = new Mazo("queso");
+        $this->assertFalse($mazo->tipo());
         
         $mazo = new Mazo("poker");
 

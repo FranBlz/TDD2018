@@ -27,6 +27,9 @@ class Mazo {
       $this->arrayTipoP = $this->pokerP;
       $this->arrayTipoN = $this->pokerN;
     }
+    else {
+      $this->tipo = false;
+    }
   }
 
   public function esVacio() {
