@@ -6,12 +6,20 @@ use PHPUnit\Framework\TestCase;
 
 class MazoTest extends TestCase {
 
+    /**
+     * Comprueba de que es posible tener un mazo vacio y al agregarle una carta, este ya no es vacio.
+     */
+
     public function testEsVacio() {
         $mazo = new Mazo("español");
         $this->assertTrue($mazo->esVacio());
         $mazo->agregar("1", "espada");
         $this->assertFalse($mazo->esVacio());
     }
+
+    /**
+     * Compruba el correcto funcionamiento de cantidad.
+     */
 
     public function testCantidad() {
         $mazo = new Mazo("español");
@@ -23,6 +31,10 @@ class MazoTest extends TestCase {
         $this->assertEquals($mazo->cantidad(), 4);
     }
 
+    /**
+     * Comprueba el correcto funcionamiento de sacar.
+     */
+
     public function testSacar() {
         $mazo = new Mazo("español");
         $this->assertFalse($mazo->sacar());
@@ -33,6 +45,10 @@ class MazoTest extends TestCase {
         $this->assertEquals($mazo->sacar()->palo(), "espada");
     }
 
+    /**
+     * Comprueba el correcto funcionamiento de mezclar.
+     */
+    
     public function testMezclar() {
         $mazo = new Mazo("español");
         $mazo->agregar("1", "espada");
@@ -49,6 +65,10 @@ class MazoTest extends TestCase {
         $this->assertNotEquals($mazo->cartas(), $mazo2->cartas());
     }
 
+    /**
+     * Comprueba el correcto funcionamiento de cortar.
+     */
+
     public function testCortar() {
         $mazo = new Mazo("español");
         $this->assertNotTrue($mazo->cortar());
@@ -59,10 +79,18 @@ class MazoTest extends TestCase {
         $this->assertTrue($mazo->cortar());
     }
 
+    /**
+     * Comprueba si un nuevo mazo esta definido.
+     */
+
     public function testExiste() {
         $mazo = new Mazo("español");
         $this->assertTrue(isset($mazo));
     }
+    
+    /**
+     * Comprueba si es posible agregar cartas compatibles con el mazo.
+     */
 
     public function testClaseCarta() {
         $mazo = new Mazo("español");
@@ -73,6 +101,11 @@ class MazoTest extends TestCase {
 	    $this->assertFalse($mazo->agregar("39", "oro"));
         $this->assertEquals($mazo->sacar()->palo(), "espada");
     }
+
+    /**
+     * Comprueba el caso en que se crea un mazo con tipo invalido sea FALSE. Ademas vuelve a testear las funcionalidad con
+     * el tipo de mazo poker.
+     */
 
     public function testTipoMazo() {
         $mazo = new Mazo("queso");

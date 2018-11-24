@@ -12,9 +12,22 @@ class Carta {
         $this->numero = $numero;
     }
 
+    /**
+     * Devuelve el palo de la carta.
+     *
+     * @return string
+     */
+
     public function palo() {
         return $this->palo;
     }
+
+    /**
+     * Devuelve el numero de la carta.
+     *
+     * @return int
+     */
+
 
     public function numero() {
         return $this->numero;

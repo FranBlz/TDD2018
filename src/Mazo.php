@@ -32,9 +32,27 @@ class Mazo {
     }
   }
 
+  /**
+   * Devuelve TRUE si el mazo esta vacio y FALSE en caso de que no.
+   *
+   * @return bool
+   */
+  
   public function esVacio() {
     return empty( $this->array );
   }
+
+  /**
+   * Agrega un carta al mazo con el numero y palo especificado. En el caso de que no sea
+   * compatible con las cartas españolas y de poker, dicha carta no sera agregada.
+   * 
+   * @param int $numero
+   * @param string $palo
+   * 
+   * @return bool
+   * Si la carta no es compatible devuelve FALSE.
+   *
+   */
 
   public function agregar( $numero, $palo ) {
   	if( (in_array($numero, $this->arrayTipoN) && in_array($palo, $this->arrayTipoP))) {
@@ -47,9 +65,22 @@ class Mazo {
     }
   }
 
+  /**
+   * Reposiciona las cartas dentro del mazo de forma aleatoria.
+   *
+   * @return array
+   */
+
   public function mezclar() {
     return shuffle( $this->array );
   }
+
+  /**
+   * Saca la carta que se encuentra en primera posicion del mazo y devuelve esa carta en caso de que el mazo no 
+   * este vacio y FALSE en caso de que si.
+   *
+   * @return Carta, bool
+   */
 
   public function sacar() {
     if ( $this->cant > 0 ) {
@@ -61,6 +92,14 @@ class Mazo {
       return False;
     }
   }
+
+  /**
+   * A partir de un numero aleatorio que se encuentre entre 0 y la cantidad de cartas - 1, reingresa las cartas
+   * al mazo dando el efecto de que este se corta.
+   * 
+   * @return bool
+   * Una vez que termina el proceso devuelve TRUE.
+   */
 
   public function cortar() {
     if ( $this->cant > 0 ) {
@@ -76,14 +115,32 @@ class Mazo {
     }
   }
 
+  /**
+   * Devuelve la cantidad de cartas del mazo.
+   * 
+   * @return int
+   */
+
   public function cantidad() {
     return $this->cant;
   }
 
+  
+  /**
+   * Devuelve el array donde se almacenan las cartas
+   * 
+   * @return array
+   */
+
   public function cartas() {
-# Esta funcion es empleada para el testeo de la funcion mezclar
     return $this->array;
   }
+
+  /**
+   * Devuelve el tipo del mazo
+   * 
+   * @return string
+   */
 
   public function tipo() {
     return $this->tipo;
